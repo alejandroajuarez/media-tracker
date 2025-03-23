@@ -42,12 +42,26 @@
 						this.media.push(response.data);
 					});
 			},
-			handleUpdateMedia: function (params) {
+			handleUpdateMedia: function (id, params) {
+				console.log("handleUpdateMedia", id, params);
 				axios
-					.put("http://localhost:5000/media/" + params.id + ".json", params)
+					.patch(`/media/${id}.json`, params)
 					.then((response) => {
 						console.log("Media updated", response);
-						this.handleIndexMedia();
+						this.media = this.media.map((m) => {
+							if (m.id === response.data.id) {
+								return response.data;
+							} else {
+								return m;
+							}
+						});
+						this.handleClose();
+					})
+					.catch((error) => {
+						console.log(
+							"There was an error updating the media!",
+							error.response
+						);
 					});
 			},
 			handleClose: function () {
@@ -62,7 +76,10 @@
 		<MediaNew v-on:createMedia="handleCreateMedia" />
 		<MediaIndex v-bind:media="media" v-on:showMedia="handleShowMedia" />
 		<Modal v-bind:show="isMediaShowVisible" v-on:close="handleClose">
-			<MediaShow v-bind:media="currentMedia" />
+			<MediaShow
+				v-bind:media="currentMedia"
+				v-on:updateMedia="handleUpdateMedia"
+			/>
 		</Modal>
 	</main>
 </template>
