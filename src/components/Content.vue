@@ -2,15 +2,21 @@
 	import axios from "axios";
 	import MediaIndex from "./MediaIndex.vue";
 	import MediaNew from "./MediaNew.vue";
+	import MediaShow from "./MediaShow.vue";
+	import Modal from "./Modal.vue";
 
 	export default {
 		components: {
 			MediaIndex,
 			MediaNew,
+			MediaShow,
+			Modal,
 		},
 		data: function () {
 			return {
 				media: [],
+				currentMedia: {},
+				isMediaShowVisible: false,
 			};
 		},
 		created: function () {
@@ -22,6 +28,11 @@
 					console.log("Media index", response);
 					this.media = response.data;
 				});
+			},
+			handleShowMedia: function (media) {
+				console.log("handleShowMedia", media);
+				this.currentMedia = media;
+				this.isMediaShowVisible = true;
 			},
 			handleCreateMedia: function (params) {
 				axios
@@ -39,6 +50,9 @@
 						this.handleIndexMedia();
 					});
 			},
+			handleClose: function () {
+				this.isMediaShowVisible = false;
+			},
 		},
 	};
 </script>
@@ -46,7 +60,10 @@
 <template>
 	<main>
 		<MediaNew v-on:createMedia="handleCreateMedia" />
-		<MediaIndex v-bind:media="media" />
+		<MediaIndex v-bind:media="media" v-on:showMedia="handleShowMedia" />
+		<Modal v-bind:show="isMediaShowVisible" v-on:close="handleClose">
+			<MediaShow v-bind:media="currentMedia" />
+		</Modal>
 	</main>
 </template>
 
