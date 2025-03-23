@@ -1,3 +1,9 @@
 html {
 	scroll-behavior: smooth;
 }
+
+.cover_image {
+	width: 300px;
+	height: 400px;
+	display: block;
+}

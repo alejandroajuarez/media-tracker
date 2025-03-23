@@ -15,7 +15,7 @@
 			<p>{{ medias.type }}</p>
 			<p>{{ medias.status }}</p>
 			<p>{{ medias.notes }}</p>
-			<img v-bind:src="medias.cover_image" />
+			<img v-bind:src="medias.cover_image" class="cover_image" />
 			<p>{{ medias.rating }}</p>
 		</div>
 	</div>
