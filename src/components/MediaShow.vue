@@ -55,5 +55,6 @@
 			</div>
 			<button type="submit">Update Vault Entry</button>
 		</form>
+		<button v-on:click="$emit('destroyMedia', media)">Destroy</button>
 	</div>
 </template>

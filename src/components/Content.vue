@@ -64,6 +64,14 @@
 						);
 					});
 			},
+			handleDestroyMedia: function (media) {
+				axios.delete(`/media/${media.id}.json`).then((response) => {
+					console.log("Vault Entry was Destroyed", response);
+					var index = this.media.indexOf(media);
+					this.media.splice(index, 1);
+					this.handleClose();
+				});
+			},
 			handleClose: function () {
 				this.isMediaShowVisible = false;
 			},
@@ -79,6 +87,7 @@
 			<MediaShow
 				v-bind:media="currentMedia"
 				v-on:updateMedia="handleUpdateMedia"
+				v-on:destroyMedia="handleDestroyMedia"
 			/>
 		</Modal>
 	</main>
