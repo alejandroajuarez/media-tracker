@@ -1,18 +1,12 @@
 <script>
-	import axios from "axios";
-	import StarRating from "./StarRating.vue";
-
 	export default {
-		components: {
-			StarRating,
-		},
 		data: function () {
 			return {
 				newMediaParams: {},
 			};
 		},
 		methods: {
-			handleCreateMedia: function () {
+			handleSubmit: function () {
 				this.$emit("createMedia", this.newMediaParams);
 				this.newMediaParams = {};
 			},
@@ -28,12 +22,12 @@
 			New Vault Entry
 		</h1>
 
-		<form v-on:submit.prevent="handleCreateMedia" class="space-y-4">
+		<form v-on:submit.prevent="handleSubmit" class="space-y-4">
 			<div>
 				<label class="block text-sm mb-1">Title:</label>
 				<input
-					v-model="newMediaParams.title"
 					type="text"
+					v-model="newMediaParams.title"
 					class="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded text-gray-100"
 				/>
 			</div>
@@ -65,24 +59,30 @@
 			<div>
 				<label class="block text-sm mb-1">Notes:</label>
 				<input
-					v-model="newMediaParams.notes"
 					type="text"
+					v-model="newMediaParams.notes"
 					class="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded text-gray-100"
 				/>
 			</div>
 
 			<div>
-				<label class="block text-sm mb-1">Entry Image URL:</label>
+				<label class="block text-sm mb-1">Cover Image URL:</label>
 				<input
-					v-model="newMediaParams.cover_image"
 					type="text"
+					v-model="newMediaParams.cover_image"
 					class="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded text-gray-100"
 				/>
 			</div>
 
 			<div>
 				<label class="block text-sm mb-1">Rating:</label>
-				<StarRating v-model="newMediaParams.rating" />
+				<input
+					type="number"
+					v-model="newMediaParams.rating"
+					class="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded text-gray-100"
+					min="0"
+					max="5"
+				/>
 			</div>
 
 			<button
@@ -94,3 +94,4 @@
 		</form>
 	</div>
 </template>
+<style></style>

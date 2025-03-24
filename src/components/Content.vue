@@ -36,10 +36,16 @@
 			},
 			handleCreateMedia: function (params) {
 				axios
-					.post("http://localhost:5000/media.json", params)
+					.post("/media.json", params)
 					.then((response) => {
 						console.log("Media create", response);
 						this.media.push(response.data);
+					})
+					.catch((error) => {
+						console.log(
+							"There was an error creating the media!",
+							error.response
+						);
 					});
 			},
 			handleUpdateMedia: function (id, params) {
