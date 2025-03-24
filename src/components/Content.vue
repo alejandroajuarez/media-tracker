@@ -80,8 +80,8 @@
 </script>
 
 <template>
-	<main>
-		<MediaNew v-on:createMedia="handleCreateMedia" />
+	<main class="min-h-screen bg-vault-background text-vault-text">
+		<!-- <MediaNew v-on:createMedia="handleCreateMedia" /> -->
 		<MediaIndex v-bind:media="media" v-on:showMedia="handleShowMedia" />
 		<Modal v-bind:show="isMediaShowVisible" v-on:close="handleClose">
 			<MediaShow
