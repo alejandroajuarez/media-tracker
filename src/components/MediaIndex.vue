@@ -9,15 +9,15 @@
 <template>
 	<div>
 		<h1>The Media Vault</h1>
-		<div v-for="medias in media" v-bind:key="media.id">
-			<h2>{{ medias.title }}</h2>
-			<img v-bind:src="medias.cover_image" class="cover_image" />
-			<p>{{ medias.id }}</p>
-			<p>{{ medias.type }}</p>
-			<p>{{ medias.status }}</p>
-			<p>{{ medias.notes }}</p>
-			<p>{{ medias.rating }}</p>
-			<button v-on:click="$emit('showMedia', medias)">Show</button>
+		<div v-for="m in media" v-bind:key="media.id">
+			<h2>{{ m.title }}</h2>
+			<img v-bind:src="m.cover_image" class="cover_image" />
+			<p>{{ m.id }}</p>
+			<p>{{ m.type }}</p>
+			<p>{{ m.status }}</p>
+			<p>{{ m.notes }}</p>
+			<p>{{ m.rating }}</p>
+			<button v-on:click="$emit('showMedia', m)">Show</button>
 		</div>
 	</div>
 </template>
