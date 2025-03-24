@@ -2,7 +2,7 @@
 
 <template>
 	<header class="bg-gray-800 text-gray-100 border-b border-gray-700 shadow-md">
-		<nav class="flex justify-between items-center max-w-6xl mx-auto px-6 py-4">
+		<nav class="flex justify-between items-center max-w-7xl mx-auto px-6 py-4">
 			<!-- App Logo / Name -->
 			<h1 class="text-xl font-bold text-indigo-400 tracking-widest">
 				<RouterLink

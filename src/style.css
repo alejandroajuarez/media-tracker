@@ -16,3 +16,39 @@ html {
 	text-align: center;
 	width: 100%;
 }
+
+.modal-main {
+	position: fixed;
+	background: #1f2937; /* Tailwind's bg-gray-800 */
+	color: #f3f4f6; /* Tailwind's text-gray-100 */
+	width: 100%;
+	max-width: 600px;
+	max-height: 90vh; /* Limit modal height */
+	overflow-y: auto; /* Scroll inside if content overflows */
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	padding: 1.5rem;
+	border-radius: 0.75rem;
+	box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+	overflow-y: auto;
+	scroll-behavior: smooth;
+}
+
+.modal-main::-webkit-scrollbar {
+	width: 10px;
+}
+
+.modal-main::-webkit-scrollbar-track {
+	background: #1f2937; /* matches bg-gray-800 */
+}
+
+.modal-main::-webkit-scrollbar-thumb {
+	background-color: #4b5563; /* matches gray-600 */
+	border-radius: 9999px;
+	border: 2px solid #1f2937; /* padding effect */
+}
+
+.modal-main::-webkit-scrollbar-thumb:hover {
+	background-color: #6b7280; /* gray-500 on hover */
+}

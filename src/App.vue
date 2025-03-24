@@ -18,14 +18,11 @@
 </script>
 
 <template>
-	<div class="min-h-screen flex flex-col">
+	<div class="min-h-screen bg-gray-900 text-gray-100 flex flex-col">
 		<Header />
-
-		<!-- Main content should grow to fill remaining space -->
-		<main class="flex-grow">
+		<main class="flex-grow px-4 sm:px-8 lg:px-40">
 			<RouterView />
 		</main>
-
 		<Footer />
 	</div>
 </template>

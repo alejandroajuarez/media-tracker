@@ -36,10 +36,15 @@
 					:src="m.cover_image"
 					class="w-[150px] h-[225px] object-cover rounded mb-2 mx-auto"
 				/>
-				<p class="text-gray-400"><strong>Type:</strong> {{ m.type }}</p>
+				<p class="text-gray-100"><strong>Type:</strong> {{ m.type }}</p>
 				<p class="text-blue-400"><strong>Status:</strong> {{ m.status }}</p>
-				<p class="text-gray-400"><strong>Notes:</strong> {{ m.notes }}</p>
-				<p><strong>Rating:</strong> {{ m.rating ?? "N/A" }}</p>
+				<p class="text-gray-100"><strong>Notes:</strong> {{ m.notes }}</p>
+				<div class="flex justify-center text-amber-400 text-lg">
+					<span v-for="n in 5" :key="n">
+						<span v-if="m.rating >= n">★</span>
+						<span v-else>☆</span>
+					</span>
+				</div>
 				<button
 					@click="$emit('showMedia', m)"
 					class="mt-2 px-3 py-1 bg-blue-500 text-white rounded hover:brightness-110"
@@ -63,10 +68,15 @@
 					:src="m.cover_image"
 					class="w-[150px] h-[225px] object-cover rounded mb-2 mx-auto"
 				/>
-				<p class="text-gray-400"><strong>Type:</strong> {{ m.type }}</p>
+				<p class="text-gray-100"><strong>Type:</strong> {{ m.type }}</p>
 				<p class="text-yellow-400"><strong>Status:</strong> {{ m.status }}</p>
-				<p class="text-gray-400"><strong>Notes:</strong> {{ m.notes }}</p>
-				<p><strong>Rating:</strong> {{ m.rating ?? "N/A" }}</p>
+				<p class="text-gray-100"><strong>Notes:</strong> {{ m.notes }}</p>
+				<div class="flex justify-center text-amber-400 text-lg">
+					<span v-for="n in 5" :key="n">
+						<span v-if="m.rating >= n">★</span>
+						<span v-else>☆</span>
+					</span>
+				</div>
 				<button
 					@click="$emit('showMedia', m)"
 					class="mt-2 px-3 py-1 bg-yellow-500 text-white rounded hover:brightness-110"
@@ -90,10 +100,15 @@
 					:src="m.cover_image"
 					class="w-[150px] h-[225px] object-cover rounded mb-2 mx-auto"
 				/>
-				<p class="text-gray-400"><strong>Type:</strong> {{ m.type }}</p>
+				<p class="text-gray-100"><strong>Type:</strong> {{ m.type }}</p>
 				<p class="text-emerald-400"><strong>Status:</strong> {{ m.status }}</p>
-				<p class="text-gray-400"><strong>Notes:</strong> {{ m.notes }}</p>
-				<p><strong>Rating:</strong> {{ m.rating ?? "N/A" }}</p>
+				<p class="text-gray-100"><strong>Notes:</strong> {{ m.notes }}</p>
+				<div class="flex justify-center text-amber-400 text-lg">
+					<span v-for="n in 5" :key="n">
+						<span v-if="m.rating >= n">★</span>
+						<span v-else>☆</span>
+					</span>
+				</div>
 				<button
 					@click="$emit('showMedia', m)"
 					class="mt-2 px-3 py-1 bg-emerald-500 text-white rounded hover:brightness-110"
